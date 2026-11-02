@@ -10,23 +10,19 @@ OpenClean is a free macOS utility for understanding system activity and reviewin
 
 *Illustrative Performance view inspired by the app. Metrics shown are examples, not live data.*
 
-## Download and install
+## Download
 
-Requires an Apple silicon Mac.
+Requires an Apple silicon Mac. Download the latest app ZIP from [OpenClean releases](https://github.com/chadathan/openclean-releases/releases/latest). This release provides a ZIP and checksum only; it does not include a shell installer.
 
-```bash
-curl -fsSL https://github.com/chadathan/openclean-releases/releases/latest/download/install.sh | bash
-```
-
-The installer downloads the latest app, verifies its SHA-256 checksum and code signature, then installs it in `/Applications` or `~/Applications`. Run the same command again to update.
-
-To uninstall:
+To download and verify the archive:
 
 ```bash
-curl -fsSL https://github.com/chadathan/openclean-releases/releases/latest/download/uninstall.sh | bash
+curl -fL https://github.com/chadathan/openclean-releases/releases/latest/download/OpenClean-mac-arm64.zip -o OpenClean-mac-arm64.zip
+curl -fL https://github.com/chadathan/openclean-releases/releases/latest/download/SHA256SUMS -o SHA256SUMS
+shasum -a 256 -c SHA256SUMS
 ```
 
-Browse [downloads and release notes](https://github.com/chadathan/openclean-releases/releases).
+After verification, extract the ZIP and move `OpenClean.app` to `/Applications` or `~/Applications`. This build uses a self-signed certificate and is not notarized with Apple, so macOS may warn or block the first launch. Continue only if you trust this build.
 
 ## Features
 
