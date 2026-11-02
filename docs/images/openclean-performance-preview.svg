@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1556" height="815" viewBox="0 0 1556 815" role="img" aria-labelledby="title desc">
+  <title id="title">OpenClean Performance dashboard preview</title>
+  <desc id="desc">Illustrative macOS app window with a performance sidebar, CPU logical processor charts, and system details. All displayed values are examples.</desc>
+  <defs>
+    <linearGradient id="backdrop" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#dce9ff"/><stop offset=".48" stop-color="#f4edff"/><stop offset="1" stop-color="#b9eee4"/></linearGradient>
+    <linearGradient id="sidebar" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#28213f"/><stop offset="1" stop-color="#303d66"/></linearGradient>
+    <linearGradient id="active" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#8770ed"/><stop offset="1" stop-color="#558fe9"/></linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity=".68"/></linearGradient>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#51446f" flood-opacity=".13"/></filter>
+  </defs>
+  <rect width="1556" height="815" rx="16" fill="url(#backdrop)"/>
+  <rect width="237" height="815" rx="16" fill="url(#sidebar)"/><rect x="221" width="16" height="815" fill="url(#sidebar)"/>
+  <circle cx="18" cy="17" r="6" fill="#ff6259"/><circle cx="38" cy="17" r="6" fill="#ffbd2e"/><circle cx="58" cy="17" r="6" fill="#28c840"/>
+  <rect x="31" y="43" width="32" height="32" rx="9" fill="#6746e9"/><path d="M39 63c5-13 15-13 20-12-1 8-6 14-16 16m5-5 8-8" fill="none" stroke="#d8d2ff" stroke-width="2.2" stroke-linecap="round"/>
+  <text x="74" y="66" fill="#fff" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="20" font-weight="700">OpenClean</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" fill="#d6d4e5">
+    <rect x="16" y="119" width="202" height="50" rx="11" fill="#7682cf" fill-opacity=".45" stroke="#cbbaff" stroke-opacity=".48"/><text x="31" y="149" fill="#fff" font-size="18">⌂</text><text x="61" y="149" fill="#fff">Overview</text>
+    <text x="30" y="207" font-size="18">≋</text><text x="61" y="207">Processes</text>
+    <text x="30" y="263" font-size="17">✦</text><text x="61" y="263">Cleanup</text>
+    <text x="30" y="319" font-size="17">▦</text><text x="61" y="319">Applications</text>
+    <text x="30" y="375" font-size="17">▱</text><text x="61" y="375">File Manager</text>
+    <text x="30" y="431" font-size="18">◇</text><text x="61" y="431">Privacy</text>
+  </g>
+  <text x="29" y="779" fill="#d6d4e5" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18">⚙</text><text x="61" y="779" fill="#d6d4e5" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13">Settings</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">
+    <text x="310" y="80" fill="#302d39" font-size="16" font-weight="700">Monitor</text>
+    <rect x="1215" y="56" width="149" height="36" rx="11" fill="#fff" fill-opacity=".65" stroke="#fff" stroke-width="2"/><text x="1230" y="79" fill="#6651c1" font-size="12" font-weight="600">⚙  Hide logical CPU</text>
+    <rect x="1374" y="56" width="108" height="36" rx="11" fill="#fff" fill-opacity=".65" stroke="#fff" stroke-width="2"/><text x="1387" y="79" fill="#6651c1" font-size="12" font-weight="600">▦  View cards</text>
+  </g>
+  <rect x="311" y="106" width="484" height="631" rx="17" fill="url(#glass)" stroke="#fff" stroke-opacity=".92"/>
+  <text x="333" y="145" fill="#363146" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="19" font-weight="700">⌁  Performance</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">
+    <rect x="325" y="168" width="457" height="61" rx="16" fill="url(#active)" stroke="#fff" stroke-opacity=".75"/>
+    <rect x="336" y="183" width="31" height="31" rx="10" fill="#a8eeff"/><text x="345" y="204" fill="#2677b5" font-size="14">⚙</text><text x="377" y="193" fill="#fff" font-size="14" font-weight="700">CPU</text><text x="377" y="212" fill="#fff" font-size="11">17.4% · 8 logical processors</text>
+    <g fill="url(#glass)" stroke="#e4def0">
+      <rect x="325" y="238" width="457" height="60" rx="16"/><rect x="325" y="308" width="457" height="60" rx="16"/><rect x="325" y="378" width="457" height="60" rx="16"/><rect x="325" y="448" width="457" height="60" rx="16"/><rect x="325" y="518" width="457" height="60" rx="16"/><rect x="325" y="588" width="457" height="60" rx="16"/><rect x="325" y="658" width="457" height="60" rx="16"/>
+    </g>
+    <g font-size="14" font-weight="650" fill="#625b73"><rect x="336" y="252" width="31" height="31" rx="10" fill="#e4d9ff"/><text x="376" y="264">Memory</text><text x="376" y="283" font-size="11" fill="#8a8299" font-weight="500">12.5 GB / 16.0 GB · 78%</text>
+      <rect x="336" y="322" width="31" height="31" rx="10" fill="#ffe5ca"/><text x="346" y="343" fill="#d67737">⚙</text><text x="376" y="334">GPU</text><text x="376" y="353" font-size="11" fill="#8a8299" font-weight="500">Apple M1 · 8%</text>
+      <rect x="336" y="392" width="31" height="31" rx="10" fill="#ffdcef"/><text x="346" y="414" fill="#c84f9f">◖</text><text x="376" y="404">NPU</text><text x="376" y="423" font-size="11" fill="#8a8299" font-weight="500">Apple Neural Engine · idle · 0.00 W</text>
+      <rect x="336" y="462" width="31" height="31" rx="10" fill="#e4dcff"/><text x="346" y="484" fill="#7044da">▰</text><text x="376" y="474">Disks</text><text x="376" y="493" font-size="11" fill="#8a8299" font-weight="500">87% used</text>
+      <rect x="336" y="532" width="31" height="31" rx="10" fill="#d8f8ec"/><text x="345" y="553" fill="#168d62">◉</text><text x="376" y="544">Network</text><text x="376" y="563" font-size="11" fill="#8a8299" font-weight="500">Interfaces combined</text>
+      <rect x="336" y="602" width="31" height="31" rx="10" fill="#fff0c7"/><text x="346" y="624" fill="#be8213">ϟ</text><text x="376" y="614">Battery</text><text x="376" y="633" font-size="11" fill="#8a8299" font-weight="500">16% · 0.00 W</text>
+      <rect x="336" y="672" width="31" height="31" rx="10" fill="#ffe0e5"/><text x="347" y="694" fill="#c2495c">♨</text><text x="376" y="684">Thermals</text><text x="376" y="703" font-size="11" fill="#8a8299" font-weight="500">58°C CPU · 55°C SoC</text>
+    </g>
+  </g>
+  <rect x="809" y="106" width="672" height="631" rx="17" fill="url(#glass)" stroke="#c6cee6"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">
+    <text x="832" y="150" fill="#343043" font-size="21" font-weight="700">CPU</text><text x="832" y="171" fill="#8a8299" font-size="11">Apple M1 · 8 logical processors</text>
+    <g transform="translate(832 205)">
+      <g id="cpu1"><rect width="118" height="125" rx="11" fill="#f7f7ff" stroke="#c8cbe5"/><text x="9" y="18" fill="#87819a" font-size="10">CPU 1</text><text x="85" y="18" fill="#383449" font-size="11" font-weight="700">24%</text><path d="M3 51 10 47 18 70 24 63 30 90 38 86 44 75 50 79 56 66 63 58 71 63 77 79 84 77 92 88 98 84 105 94 114 89" fill="#7d57ff" fill-opacity=".15" stroke="#7d57ff" stroke-width="1.5"/></g>
+      <g transform="translate(127)"><rect width="118" height="125" rx="11" fill="#f7f7ff" stroke="#c8cbe5"/><text x="9" y="18" fill="#87819a" font-size="10">CPU 2</text><text x="82" y="18" fill="#383449" font-size="11" font-weight="700">18.8%</text><path d="M3 73 10 53 18 81 25 71 34 89 42 62 49 74 57 68 64 86 71 78 79 95 86 87 94 94 101 93 109 103 115 101" fill="#4c91ff" fill-opacity=".15" stroke="#4c91ff" stroke-width="1.5"/></g>
+      <g transform="translate(254)"><rect width="118" height="125" rx="11" fill="#f7f7ff" stroke="#c8cbe5"/><text x="9" y="18" fill="#87819a" font-size="10">CPU 3</text><text x="82" y="18" fill="#383449" font-size="11" font-weight="700">19.2%</text><path d="M3 53 10 78 19 87 26 91 34 84 42 88 49 80 57 85 64 103 72 92 79 106 86 79 94 94 102 90 109 101 115 98" fill="#ff5a76" fill-opacity=".15" stroke="#ff5a76" stroke-width="1.5"/></g>
+      <g transform="translate(381)"><rect width="118" height="125" rx="11" fill="#f7f7ff" stroke="#c8cbe5"/><text x="9" y="18" fill="#87819a" font-size="10">CPU 4</text><text x="82" y="18" fill="#383449" font-size="11" font-weight="700">12.9%</text><path d="M3 74 10 51 18 87 26 79 33 96 41 84 49 90 56 68 64 88 71 78 79 103 86 95 94 107 101 103 108 112 115 109" fill="#10b997" fill-opacity=".15" stroke="#10b997" stroke-width="1.5"/></g>
+      <g transform="translate(0 138)"><rect width="118" height="125" rx="11" fill="#f7f7ff" stroke="#c8cbe5"/><text x="9" y="18" fill="#87819a" font-size="10">CPU 5</text><text x="82" y="18" fill="#383449" font-size="11" font-weight="700">32.7%</text><path d="M3 42 10 53 18 99 25 88 33 104 41 96 48 112 56 101 64 105 71 90 79 98 86 81 94 100 101 94 108 114 115 103" fill="#ff972f" fill-opacity=".15" stroke="#ff972f" stroke-width="1.5"/></g>
+      <g transform="translate(127 138)"><rect width="118" height="125" rx="11" fill="#f7f7ff" stroke="#c8cbe5"/><text x="9" y="18" fill="#87819a" font-size="10">CPU 6</text><text x="82" y="18" fill="#383449" font-size="11" font-weight="700">22%</text><path d="M3 51 10 76 17 69 24 82 32 73 40 76 48 70 56 77 63 67 71 69 79 75 86 65 94 77 102 78 109 89 115 85" fill="#a259ec" fill-opacity=".15" stroke="#a259ec" stroke-width="1.5"/></g>
+      <g transform="translate(254 138)"><rect width="118" height="125" rx="11" fill="#f7f7ff" stroke="#c8cbe5"/><text x="9" y="18" fill="#87819a" font-size="10">CPU 7</text><text x="82" y="18" fill="#383449" font-size="11" font-weight="700">7%</text><path d="M3 72 10 48 18 91 25 78 33 84 41 78 49 86 56 76 64 87 71 92 79 83 86 97 94 102 102 106 109 110 115 111" fill="#20afc1" fill-opacity=".15" stroke="#20afc1" stroke-width="1.5"/></g>
+      <g transform="translate(381 138)"><rect width="118" height="125" rx="11" fill="#f7f7ff" stroke="#c8cbe5"/><text x="9" y="18" fill="#87819a" font-size="10">CPU 8</text><text x="82" y="18" fill="#383449" font-size="11" font-weight="700">3%</text><path d="M3 49 10 98 18 87 25 104 33 108 41 102 49 107 56 98 64 109 71 105 79 114 86 112 94 116 102 113 109 118 115 116" fill="#ec45a7" fill-opacity=".15" stroke="#ec45a7" stroke-width="1.5"/></g>
+    </g>
+    <path d="M1352 205v260" stroke="#8b75ee" stroke-width="3"/>
+    <text x="1364" y="221" fill="#5540a4" font-size="16" font-weight="700">17.4%</text><text x="1364" y="239" fill="#8a8299" font-size="11">Usage</text>
+    <text x="1364" y="285" fill="#60627d" font-size="16" font-weight="700">82.6%</text><text x="1364" y="303" fill="#8a8299" font-size="11">Available</text>
+    <text x="1364" y="349" fill="#ed4564" font-size="16" font-weight="700">7.2%</text><text x="1364" y="367" fill="#8a8299" font-size="11">User</text>
+    <text x="1364" y="413" fill="#5875ec" font-size="16" font-weight="700">10.1%</text><text x="1364" y="431" fill="#8a8299" font-size="11">System</text>
+    <path d="M832 484h626" stroke="#ddd9e7"/>
+    <text x="832" y="513" fill="#8a8299" font-size="12">Processes</text><text x="832" y="539" fill="#343043" font-size="20" font-weight="700">648</text>
+    <text x="966" y="513" fill="#8a8299" font-size="12">Threads</text><text x="966" y="539" fill="#343043" font-size="20" font-weight="700">3382</text>
+    <text x="1126" y="512" fill="#8a8299" font-size="12">Sockets</text><text x="1458" y="512" text-anchor="end" fill="#343043" font-size="12" font-weight="700">1</text>
+    <text x="1126" y="536" fill="#8a8299" font-size="12">Cores</text><text x="1458" y="536" text-anchor="end" fill="#343043" font-size="12" font-weight="700">8</text>
+    <text x="1126" y="560" fill="#8a8299" font-size="12">Logical processors</text><text x="1458" y="560" text-anchor="end" fill="#343043" font-size="12" font-weight="700">8</text>
+    <text x="1126" y="584" fill="#8a8299" font-size="12">Performance cores</text><text x="1458" y="584" text-anchor="end" fill="#343043" font-size="12" font-weight="700">4</text>
+    <text x="1126" y="608" fill="#8a8299" font-size="12">Efficiency cores</text><text x="1458" y="608" text-anchor="end" fill="#343043" font-size="12" font-weight="700">4</text>
+    <text x="1126" y="632" fill="#8a8299" font-size="12">Virtualization</text><text x="1458" y="632" text-anchor="end" fill="#343043" font-size="12" font-weight="700">Enabled</text>
+    <text x="1126" y="656" fill="#8a8299" font-size="12">L1 cache</text><text x="1458" y="656" text-anchor="end" fill="#343043" font-size="12" font-weight="700">192 KB</text>
+    <text x="1126" y="680" fill="#8a8299" font-size="12">L2 cache</text><text x="1458" y="680" text-anchor="end" fill="#343043" font-size="12" font-weight="700">4 MB</text>
+    <text x="832" y="580" fill="#8a8299" font-size="12">Up time</text><text x="832" y="605" fill="#343043" font-size="18" font-weight="700">3:21:43:19</text>
+  </g>
+  <rect x="1167" y="766" width="315" height="29" rx="14" fill="#fff" fill-opacity=".7" stroke="#fff"/><text x="1184" y="785" fill="#756d82" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11">Illustrative preview · sample metrics</text>
+</svg>

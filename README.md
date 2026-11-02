@@ -6,6 +6,10 @@ OpenClean is a free macOS utility for understanding system activity and reviewin
 
 *Illustrative dashboard preview. Metrics shown are examples, not live data.*
 
+![OpenClean Performance view with per-core CPU graphs (illustration)](docs/images/openclean-performance-preview.svg)
+
+*Illustrative Performance view inspired by the app. Metrics shown are examples, not live data.*
+
 ## Download and install
 
 Requires an Apple silicon Mac.
