@@ -13,4 +13,3 @@ release/
 # Local app config: never commit
 client_secret_*.json
 account.local.json
-openclean.local.json

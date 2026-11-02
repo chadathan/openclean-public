@@ -29,7 +29,7 @@ Browse [downloads and release notes](https://github.com/chadathan/openclean-rele
 - Process activity and low-storage alerts
 - Permission Center for checking Full Disk Access
 
-OpenClean has no account or sign-in requirement. Anonymous usage counts are sent only when analytics are configured for the build and enabled in Settings. They include page names and app/macOS versions, not file paths, scan results, or installed-app lists.
+OpenClean has no account or sign-in requirement and does not collect usage analytics or telemetry.
 
 ## Build from source
 

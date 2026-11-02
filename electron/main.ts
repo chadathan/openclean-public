@@ -6,7 +6,6 @@ import { registerJunkInventory } from './junk-inventory';
 import { registerRemovals } from './removals';
 import { registerDeveloperTools } from './developer-tools';
 import { registerFileInventory } from './file-inventory';
-import { registerAnalytics } from './analytics';
 
 const isDev = !app.isPackaged;
 
@@ -339,7 +338,6 @@ app.whenReady().then(async () => {
   registerRemovals();
   registerDeveloperTools();
   registerFileInventory();
-  await registerAnalytics();
   buildApplicationMenu();
   createWindow();
   createMenuBarAgent();

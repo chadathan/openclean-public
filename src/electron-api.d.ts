@@ -453,9 +453,6 @@ interface Window {
     getMetricsSnapshot(): Promise<MetricsSnapshot>;
     getBackgroundMonitoring(): Promise<{ enabled: boolean }>;
     setBackgroundMonitoring(enabled: boolean): Promise<{ enabled: boolean }>;
-    getAnalytics(): Promise<{ enabled: boolean; available: boolean }>;
-    setAnalytics(enabled: boolean): Promise<{ enabled: boolean; available: boolean }>;
-    trackScreen(screen: string): void;
     getLowStorageAlert(): Promise<{ enabled: boolean; thresholdBytes: number; supported: boolean }>;
     setLowStorageAlert(request: { enabled: boolean; thresholdBytes: number }): Promise<{ enabled: boolean; thresholdBytes: number; supported: boolean }>;
     onMetricsSample(callback: (payload: MetricsSample) => void): () => void;

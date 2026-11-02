@@ -29,9 +29,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
   ,getMetricsSnapshot: () => ipcRenderer.invoke('metrics:snapshot')
   ,getBackgroundMonitoring: () => ipcRenderer.invoke('metrics:get-background-monitoring')
   ,setBackgroundMonitoring: (enabled: boolean) => ipcRenderer.invoke('metrics:set-background-monitoring', enabled)
-  ,getAnalytics: () => ipcRenderer.invoke('analytics:get')
-  ,setAnalytics: (enabled: boolean) => ipcRenderer.invoke('analytics:set', enabled)
-  ,trackScreen: (screen: string) => ipcRenderer.send('analytics:screen', screen)
   ,getLowStorageAlert: () => ipcRenderer.invoke('metrics:get-low-storage-alert')
   ,setLowStorageAlert: (request: { enabled: boolean; thresholdBytes: number }) => ipcRenderer.invoke('metrics:set-low-storage-alert', request)
   ,onMetricsSample: (callback: (payload: unknown) => void) => {

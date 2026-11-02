@@ -9,7 +9,7 @@
     "ng:serve": "ng serve",
     "icon:mac": "mkdir -p build && swift scripts/create-mac-icon.swift src/assets/brand/openclean-mark.png build/openclean.icns",
     "electron:native": "mkdir -p dist-electron && clang -O2 -o dist-electron/openclean-temperature electron/native/temperature.c -framework CoreFoundation -framework IOKit && clang -O2 -o dist-electron/openclean-power electron/native/power.c -framework CoreFoundation && clang -O2 -o dist-electron/openclean-process-io electron/native/process-io.c && swiftc -O -o dist-electron/openclean-ane-load electron/native/ane-load.swift && swiftc -O -o dist-electron/openclean-thermal-state electron/native/thermal-state.swift && swiftc -O -o dist-electron/openclean-app-icon electron/native/app-icon.swift && swiftc -O -o dist-electron/openclean-trash electron/native/trash.swift",
-    "electron:build": "npm run electron:native && tsc -p electron/tsconfig.json && node scripts/write-app-config.mjs",
+    "electron:build": "npm run electron:native && tsc -p electron/tsconfig.json",
     "build": "ng build && npm run electron:build",
     "build:angular": "ng build --configuration production",
     "package:mac": "npm run icon:mac && npm run build:angular && npm run electron:build && electron-builder --mac dir",

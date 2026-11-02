@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, effect, HostListener, inject, signal } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faBatteryHalf, faBolt, faBrain, faBroom, faChartLine, faChartPie, faFolderOpen, faGear, faGlobe, faHardDrive, faHouse, faListUl, faMemory, faMicrochip, faShieldHalved, faTableCells, faTemperatureHalf } from '@fortawesome/free-solid-svg-icons';
+import { faBatteryHalf, faBolt, faBrain, faBroom, faChartLine, faFolderOpen, faGear, faGlobe, faHardDrive, faHouse, faListUl, faMemory, faMicrochip, faShieldHalved, faTableCells, faTemperatureHalf } from '@fortawesome/free-solid-svg-icons';
 import { formatBinaryBytes } from './dashboard/metric-format';
 import { CpuViewComponent } from './dashboard/cpu-view.component';
 import { GpuViewComponent } from './dashboard/gpu-view.component';
@@ -59,15 +59,12 @@ function writeStored(key: string, value: string): void {
       <section class="content">
         @if (activeTab() === 'privacy') { <oc-privacy /> } @else if (activeTab() === 'processes') { <oc-process-manager /> } @else if (activeTab() === 'cleanup') { <oc-cleanup (openPrivacy)="setTab('privacy')" /> } @else if (activeTab() === 'applications') { <oc-applications /> } @else if (activeTab() === 'files') { <oc-file-manager /> } @else if (activeTab() === 'settings') {
           <section class="settings-page">
-            <header class="settings-heading"><p class="eyebrow">PREFERENCES</p><h1>Settings</h1><p class="muted">Manage system monitoring and privacy preferences.</p></header>
+            <header class="settings-heading"><p class="eyebrow">PREFERENCES</p><h1>Settings</h1><p class="muted">Manage system monitoring preferences.</p></header>
             <section class="settings-group"><h3 class="settings-group-title">Monitoring &amp; alerts</h3>
               <div class="settings-row"><div class="settings-icon tone-violet"><fa-icon [icon]="faChartLine" /></div><div class="settings-copy"><h2>Background monitoring</h2><p>Keep collecting system data while the dashboard and popover are closed.</p><small class="settings-status" [class.on]="backgroundMonitoring()"><i></i>{{ backgroundMonitoring() ? 'Monitoring stays active in the menu bar.' : 'Monitoring runs only while a monitor view is open.' }}</small></div><button class="switch" type="button" role="switch" aria-label="Background monitoring" [attr.aria-checked]="backgroundMonitoring()" [attr.aria-busy]="backgroundSettingSaving()" [disabled]="!electronAvailable || !backgroundSettingReady() || backgroundSettingSaving()" (click)="toggleBackgroundMonitoring()"><span></span></button></div>
               <div class="settings-row"><div class="settings-icon tone-teal"><fa-icon [icon]="faHardDrive" /></div><div class="settings-copy"><h2>Low storage alert</h2><p>Get a macOS notification when the startup disk runs low. OpenClean never deletes files automatically.</p>
                   <div class="threshold" [class.dimmed]="!lowStorageAlertEnabled()"><span id="threshold-label">Alert below</span><div class="segmented" role="radiogroup" aria-labelledby="threshold-label">@for (gb of thresholdOptions; track gb) { <button type="button" role="radio" [attr.aria-checked]="lowStorageThresholdGb() === gb" [disabled]="!electronAvailable || !lowStorageAlertReady() || lowStorageAlertSaving() || !lowStorageAlertSupported()" (click)="setLowStorageThreshold(gb)">{{ gb }} GB</button> }</div></div>
                   <small class="settings-status" [class.on]="lowStorageAlertEnabled() && lowStorageAlertSupported()"><i></i>{{ !lowStorageAlertSupported() ? 'System notifications are unavailable on this Mac.' : lowStorageAlertEnabled() ? 'Notifies when free space drops below ' + lowStorageThresholdGb() + ' GB, and again after it recovers.' : 'Alert is off.' }}</small></div><button class="switch" type="button" role="switch" aria-label="Low storage alert" [attr.aria-checked]="lowStorageAlertEnabled()" [attr.aria-busy]="lowStorageAlertSaving()" [disabled]="!electronAvailable || !lowStorageAlertReady() || lowStorageAlertSaving() || !lowStorageAlertSupported()" (click)="toggleLowStorageAlert()"><span></span></button></div>
-            </section>
-            <section class="settings-group"><h3 class="settings-group-title">Privacy</h3>
-              <div class="settings-row"><div class="settings-icon tone-violet"><fa-icon [icon]="faChartPie" /></div><div class="settings-copy"><h2>Share anonymous usage counts</h2><p>Helps us see how many Macs use OpenClean and which pages are opened. Only the page name, app version and macOS version are sent with a random ID. File names, paths, scan results and installed apps never leave your Mac.</p><small class="settings-status" [class.on]="analyticsEnabled() && analyticsAvailable()"><i></i>{{ !analyticsAvailable() ? 'Not configured in this build.' : analyticsEnabled() ? 'Sharing anonymous counts.' : 'Off. Nothing is sent.' }}</small></div><button class="switch" type="button" role="switch" aria-label="Share anonymous usage counts" [attr.aria-checked]="analyticsEnabled()" [attr.aria-busy]="analyticsSaving()" [disabled]="!electronAvailable || !analyticsAvailable() || analyticsSaving()" (click)="toggleAnalytics()"><span></span></button></div>
             </section>
           </section>
         } @else {
@@ -116,15 +113,8 @@ export class AppComponent {
   get storageUnavailable(): boolean { return this.monitor.storageUnavailable(); }
   get storage() { return this.monitor.storage(); }
 
-  readonly faChartPie = faChartPie;
-  readonly analyticsEnabled = signal(true);
-  readonly analyticsAvailable = signal(false);
-  readonly analyticsSaving = signal(false);
-
   constructor() {
     this.syncMonitoring();
-    window.electronAPI?.trackScreen?.(this.menuBarMode ? 'menu-bar' : this.activeTab());
-    void this.loadAnalytics();
     void this.loadBackgroundMonitoring();
     void this.loadLowStorageAlert();
   }
@@ -172,27 +162,6 @@ export class AppComponent {
       this.syncMonitoring();
       console.error('Unable to save background monitoring preference', error);
     } finally { this.backgroundSettingSaving.set(false); }
-  }
-
-  private async loadAnalytics(): Promise<void> {
-    try {
-      const result = await window.electronAPI?.getAnalytics?.();
-      if (result) { this.analyticsEnabled.set(result.enabled); this.analyticsAvailable.set(result.available); }
-    } catch (error) { console.error('Unable to load the usage-count preference', error); }
-  }
-
-  async toggleAnalytics(): Promise<void> {
-    if (this.analyticsSaving()) return;
-    const next = !this.analyticsEnabled();
-    this.analyticsSaving.set(true);
-    this.analyticsEnabled.set(next);
-    try {
-      const result = await window.electronAPI?.setAnalytics(next);
-      if (result) this.analyticsEnabled.set(result.enabled);
-    } catch (error) {
-      this.analyticsEnabled.set(!next);
-      console.error('Unable to save the usage-count preference', error);
-    } finally { this.analyticsSaving.set(false); }
   }
 
   private async loadLowStorageAlert(): Promise<void> {
@@ -304,7 +273,6 @@ export class AppComponent {
   setTab(tab: 'overview' | 'processes' | 'cleanup' | 'applications' | 'files' | 'privacy' | 'settings'): void {
     this.activeTab.set(tab);
     this.syncMonitoring();
-    window.electronAPI?.trackScreen?.(tab);
   }
   toggleViewMode(): void { this.viewMode.update(mode => mode === 'cards' ? 'graph' : 'cards'); writeStored('viewMode', this.viewMode()); }
   /**
