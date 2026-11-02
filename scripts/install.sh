@@ -4,12 +4,11 @@
 #   curl -fsSL https://github.com/chadathan/openclean-releases/releases/latest/download/install.sh | bash
 #
 # What it does: downloads the app from GitHub Releases over HTTPS, checks its SHA-256 checksum,
-# checks that it is signed with OpenClean's own certificate, quits a running copy, and puts the
-# new one in /Applications (or ~/Applications when /Applications is not writable). It never uses
-# sudo and changes nothing else on your Mac.
+# asks before installing this self-signed, non-notarized build, then installs it in /Applications
+# (or ~/Applications when /Applications is not writable). It never uses sudo.
 #
 # Options, as environment variables:
-#   OPENCLEAN_VERSION=0.2.0   install that version instead of the latest
+#   OPENCLEAN_VERSION=0.3.1   install that version instead of the latest
 #   OPENCLEAN_NO_OPEN=1       do not open OpenClean afterwards
 #
 # Everything runs inside main(), so a download cut off halfway executes nothing.
@@ -19,15 +18,20 @@ main() {
 
   local repo="${OPENCLEAN_REPO:-chadathan/openclean-releases}"
   local version="${OPENCLEAN_VERSION:-latest}"
-  # SHA-256 of OpenClean's signing certificate. An app signed by anything else is refused.
-  local cert_sha256="f08154b8144f14d3e7ee255fec85e960e04aaa1f151ae8946dd173f3af87e9fb"
-
   say() { printf '\033[1m==>\033[0m %s\n' "$*"; }
   fail() { printf '\033[31mError:\033[0m %s\n' "$*" >&2; exit 1; }
 
   [ "$(uname -s)" = "Darwin" ] || fail "OpenClean runs on macOS only."
   local arch; arch="$(uname -m)"
   [ "$arch" = "arm64" ] || fail "This release supports Apple silicon Macs only (found $arch)."
+
+  printf '\nOpenClean is self-signed and has not been notarized by Apple.\n'
+  printf 'The installer verifies the downloaded archive checksum, but macOS may still warn or block the app.\n'
+  local answer
+  if ! read -r -p "Continue installing OpenClean? [y/N] " answer </dev/tty; then
+    fail "Could not read confirmation from a terminal."
+  fi
+  case "$answer" in y|Y|yes|YES) ;; *) say "Installation cancelled."; return 0 ;; esac
 
   local asset="OpenClean-mac-arm64.zip"
   local base
@@ -52,11 +56,6 @@ main() {
   ditto -x -k "$tmp/$asset" "$tmp/unpacked"
   local app="$tmp/unpacked/OpenClean.app"
   [ -d "$app" ] || fail "The download does not contain OpenClean.app."
-
-  codesign --verify --deep --strict "$app" 2>/dev/null || fail "The app's signature is not valid; nothing was installed."
-  ( cd "$tmp" && codesign -d --extract-certificates=cert "$app" 2>/dev/null )
-  [ -f "$tmp/cert0" ] || fail "The app is not signed with a certificate; nothing was installed."
-  [ "$(shasum -a 256 "$tmp/cert0" | awk '{ print $1 }')" = "$cert_sha256" ] || fail "The app is not signed by OpenClean; nothing was installed."
 
   local dest="/Applications"
   if [ ! -w "$dest" ]; then dest="$HOME/Applications"; mkdir -p "$dest"; fi
