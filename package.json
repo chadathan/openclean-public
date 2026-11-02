@@ -1,0 +1,86 @@
+{
+  "name": "openclean",
+  "version": "0.3.0",
+  "private": true,
+  "description": "OpenClean macOS monitor dashboard",
+  "main": "dist-electron/main.js",
+  "scripts": {
+    "start": "npm run electron:build && concurrently -k \"ng serve\" \"wait-on http://localhost:4310 && env -u ELECTRON_RUN_AS_NODE electron .\"",
+    "ng:serve": "ng serve",
+    "icon:mac": "mkdir -p build && swift scripts/create-mac-icon.swift src/assets/brand/openclean-mark.png build/openclean.icns",
+    "electron:native": "mkdir -p dist-electron && clang -O2 -o dist-electron/openclean-temperature electron/native/temperature.c -framework CoreFoundation -framework IOKit && clang -O2 -o dist-electron/openclean-power electron/native/power.c -framework CoreFoundation && clang -O2 -o dist-electron/openclean-process-io electron/native/process-io.c && swiftc -O -o dist-electron/openclean-ane-load electron/native/ane-load.swift && swiftc -O -o dist-electron/openclean-thermal-state electron/native/thermal-state.swift && swiftc -O -o dist-electron/openclean-app-icon electron/native/app-icon.swift && swiftc -O -o dist-electron/openclean-trash electron/native/trash.swift",
+    "electron:build": "npm run electron:native && tsc -p electron/tsconfig.json && node scripts/write-app-config.mjs",
+    "build": "ng build && npm run electron:build",
+    "build:angular": "ng build --configuration production",
+    "package:mac": "npm run icon:mac && npm run build:angular && npm run electron:build && electron-builder --mac dir",
+    "electron": "electron .",
+    "test": "ng test --watch=false --browsers=ChromeHeadless",
+    "test:electron": "tsc -p electron/tsconfig.json && node --test \"electron/test/*.test.cjs\"",
+    "release:mac": "scripts/release-mac.sh",
+    "package:dmg": "scripts/package-dmg.sh"
+  },
+  "dependencies": {
+    "@angular/animations": "^19.2.0",
+    "@angular/common": "^19.2.0",
+    "@angular/compiler": "^19.2.0",
+    "@angular/core": "^19.2.0",
+    "@angular/forms": "^19.2.0",
+    "@angular/platform-browser": "^19.2.0",
+    "@angular/platform-browser-dynamic": "^19.2.25",
+    "@angular/router": "^19.2.0",
+    "@fortawesome/angular-fontawesome": "^1.0.0",
+    "@fortawesome/fontawesome-svg-core": "^7.3.1",
+    "@fortawesome/free-solid-svg-icons": "^7.3.1",
+    "rxjs": "~7.8.2",
+    "tslib": "^2.8.1",
+    "zone.js": "~0.15.0"
+  },
+  "build": {
+    "appId": "com.openclean.app",
+    "productName": "OpenClean",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist-electron/**/*",
+      "dist/openclean/**/*",
+      "package.json"
+    ],
+    "asarUnpack": [
+      "dist-electron/openclean-temperature",
+      "dist-electron/openclean-power",
+      "dist-electron/openclean-ane-load",
+      "dist-electron/openclean-thermal-state",
+      "dist-electron/openclean-app-icon",
+      "dist-electron/openclean-process-io",
+      "dist-electron/openclean-trash"
+    ],
+    "mac": {
+      "icon": "build/openclean.icns",
+      "target": [
+        "dir"
+      ],
+      "category": "public.app-category.utilities",
+      "identity": null
+    },
+    "dmg": {
+      "icon": "build/openclean-volume.icns"
+    }
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^19.2.0",
+    "@angular/cli": "^19.2.0",
+    "@angular/compiler-cli": "^19.2.0",
+    "@types/jasmine": "^6.0.0",
+    "concurrently": "^9.1.2",
+    "electron": "^36.3.2",
+    "electron-builder": "^26.15.3",
+    "jasmine-core": "^7.0.2",
+    "karma": "^6.4.4",
+    "karma-chrome-launcher": "^3.2.0",
+    "karma-jasmine": "^5.1.0",
+    "karma-jasmine-html-reporter": "^2.3.0",
+    "typescript": "~5.7.2",
+    "wait-on": "^8.0.3"
+  }
+}

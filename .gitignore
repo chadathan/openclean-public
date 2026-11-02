@@ -1,0 +1,16 @@
+node_modules/
+dist/
+dist-electron/
+.angular/
+release/
+.DS_Store
+*.log
+
+# Angular build output that lands at the repo root
+/index.html
+/build/
+
+# Local app config: never commit
+client_secret_*.json
+account.local.json
+openclean.local.json
