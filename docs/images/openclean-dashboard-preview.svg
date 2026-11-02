@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="820" viewBox="0 0 1280 820" role="img" aria-labelledby="title desc">
+  <title id="title">OpenClean dashboard preview</title>
+  <desc id="desc">Illustrative OpenClean macOS dashboard showing system monitor cards for CPU, memory, storage, GPU, battery, and network.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f1f5ff"/><stop offset=".52" stop-color="#eee9fb"/><stop offset="1" stop-color="#e0efff"/></linearGradient>
+    <linearGradient id="side" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#18152f"/><stop offset=".56" stop-color="#292052"/><stop offset="1" stop-color="#172d4d"/></linearGradient>
+    <linearGradient id="selected" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#9a76ff" stop-opacity=".48"/><stop offset="1" stop-color="#4ca9ff" stop-opacity=".24"/></linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff" stop-opacity=".97"/><stop offset="1" stop-color="#fff" stop-opacity=".72"/></linearGradient>
+    <filter id="shadow" x="-15%" y="-20%" width="130%" height="150%"><feDropShadow dx="0" dy="10" stdDeviation="13" flood-color="#44516b" flood-opacity=".14"/></filter>
+  </defs>
+  <rect width="1280" height="820" rx="26" fill="#d6d5df"/>
+  <rect x="2" y="2" width="1276" height="816" rx="25" fill="url(#bg)" stroke="#fff" stroke-opacity=".9" stroke-width="2"/>
+  <circle cx="25" cy="22" r="6" fill="#ff6058"/><circle cx="45" cy="22" r="6" fill="#ffbd2e"/><circle cx="65" cy="22" r="6" fill="#28c840"/>
+  <rect x="0" y="38" width="254" height="782" fill="url(#side)"/>
+  <rect x="29" y="70" width="36" height="36" rx="11" fill="#fff" fill-opacity=".13" stroke="#fff" stroke-opacity=".24"/>
+  <path d="M39 91c5-12 13-14 19-13-1 8-5 15-15 17m6-5 8-8" fill="none" stroke="#c9b7ff" stroke-width="2.4" stroke-linecap="round"/>
+  <text x="77" y="94" fill="#fff" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="20" font-weight="700">OpenClean</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="15" fill="#c9c9df">
+    <rect x="18" y="138" width="218" height="46" rx="12" fill="url(#selected)" stroke="#c8b9ff" stroke-opacity=".32"/><text x="36" y="167" fill="#fff">⌂</text><text x="62" y="167" fill="#fff" font-weight="600">Overview</text>
+    <text x="36" y="223">≋</text><text x="62" y="223">Processes</text>
+    <text x="36" y="279">✳</text><text x="62" y="279">Cleanup</text>
+    <text x="36" y="335">▦</text><text x="62" y="335">Applications</text>
+    <text x="36" y="391">▱</text><text x="62" y="391">File Manager</text>
+    <text x="36" y="447">◇</text><text x="62" y="447">Privacy</text>
+  </g>
+  <text x="36" y="773" fill="#c9c9df" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="15">⚙</text><text x="62" y="773" fill="#c9c9df" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="15">Settings</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">
+    <text x="300" y="105" fill="#716a7c" font-size="13" font-weight="700" letter-spacing="2">SYSTEM OVERVIEW</text>
+    <text x="300" y="151" fill="#292638" font-size="34" font-weight="700">Monitor</text>
+    <rect x="1030" y="117" width="194" height="42" rx="12" fill="#ffffffa8" stroke="#fff"/><text x="1052" y="144" fill="#6955b6" font-size="14" font-weight="600">⌁  View graph</text>
+    <rect x="300" y="178" width="922" height="78" rx="18" fill="#f5f1ff" stroke="#e6defb"/>
+    <rect x="320" y="195" width="44" height="44" rx="14" fill="#8f72f6"/><text x="334" y="225" fill="#fff" font-size="21">✦</text>
+    <text x="382" y="209" fill="#302b3d" font-size="16" font-weight="700">Your Mac is running smoothly</text><text x="382" y="233" fill="#8f899f" font-size="13">System activity at a glance</text>
+    <text x="1134" y="226" fill="#302b3d" font-size="25" font-weight="700">Good</text>
+  </g>
+  <g filter="url(#shadow)" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">
+    <g transform="translate(300 278)"><rect width="292" height="205" rx="20" fill="url(#card)" stroke="#fff"/><rect x="20" y="19" width="34" height="34" rx="11" fill="#eee6ff"/><text x="29" y="42" fill="#7044da" font-size="17">◉</text><text x="20" y="83" fill="#665d78" font-size="14" font-weight="600">CPU</text><text x="20" y="128" fill="#302b3d" font-size="37" font-weight="750">18%</text><text x="20" y="155" fill="#70677e" font-size="13">Apple silicon · 10 cores</text><path d="M20 181 C55 175 62 186 91 173 S140 178 161 163 S207 177 229 158 S254 164 272 147" fill="none" stroke="#70b75c" stroke-width="3" stroke-linecap="round"/></g>
+    <g transform="translate(614 278)"><rect width="292" height="205" rx="20" fill="url(#card)" stroke="#fff"/><rect x="20" y="19" width="34" height="34" rx="11" fill="#e2f4ff"/><text x="29" y="42" fill="#1776bc" font-size="17">▥</text><text x="20" y="83" fill="#665d78" font-size="14" font-weight="600">Memory</text><text x="20" y="128" fill="#302b3d" font-size="37" font-weight="750">11.8 GB</text><text x="20" y="155" fill="#70677e" font-size="13">of 24 GB · pressure normal</text><path d="M20 181 C52 174 61 165 90 171 S132 162 160 168 S199 152 223 160 S252 150 272 154" fill="none" stroke="#8b6de2" stroke-width="3" stroke-linecap="round"/></g>
+    <g transform="translate(928 278)"><rect width="294" height="205" rx="20" fill="url(#card)" stroke="#fff"/><rect x="20" y="19" width="34" height="34" rx="11" fill="#e4fff2"/><text x="29" y="42" fill="#168d62" font-size="17">▰</text><text x="20" y="83" fill="#665d78" font-size="14" font-weight="600">Storage</text><text x="20" y="128" fill="#302b3d" font-size="37" font-weight="750">64%</text><text x="20" y="155" fill="#70677e" font-size="13">Macintosh HD · 182 GB free</text><rect x="20" y="173" width="252" height="8" rx="4" fill="#e8e3ef"/><rect x="20" y="173" width="161" height="8" rx="4" fill="#66c796"/></g>
+    <g transform="translate(300 501)"><rect width="292" height="205" rx="20" fill="url(#card)" stroke="#fff"/><rect x="20" y="19" width="34" height="34" rx="11" fill="#eee6ff"/><text x="29" y="42" fill="#7044da" font-size="17">◈</text><text x="20" y="83" fill="#665d78" font-size="14" font-weight="600">GPU</text><text x="20" y="128" fill="#302b3d" font-size="37" font-weight="750">12%</text><text x="20" y="155" fill="#70677e" font-size="13">Integrated graphics</text><path d="M20 181 C50 176 63 180 90 166 S139 177 164 161 S204 165 231 154 S255 161 272 148" fill="none" stroke="#bb83e5" stroke-width="3" stroke-linecap="round"/></g>
+    <g transform="translate(614 501)"><rect width="292" height="205" rx="20" fill="url(#card)" stroke="#fff"/><rect x="20" y="19" width="34" height="34" rx="11" fill="#fff0e1"/><text x="29" y="42" fill="#c6651e" font-size="17">ϟ</text><text x="20" y="83" fill="#665d78" font-size="14" font-weight="600">Battery</text><text x="20" y="128" fill="#302b3d" font-size="37" font-weight="750">86%</text><text x="20" y="155" fill="#70677e" font-size="13">On battery · 142 cycles</text><rect x="20" y="173" width="252" height="8" rx="4" fill="#e8e3ef"/><rect x="20" y="173" width="216" height="8" rx="4" fill="#8bcf9b"/></g>
+    <g transform="translate(928 501)"><rect width="294" height="205" rx="20" fill="url(#card)" stroke="#fff"/><rect x="20" y="19" width="34" height="34" rx="11" fill="#e4f7f5"/><text x="29" y="42" fill="#4caeaa" font-size="17">↕</text><text x="20" y="83" fill="#665d78" font-size="14" font-weight="600">Network</text><text x="20" y="128" fill="#302b3d" font-size="37" font-weight="750">2.4 MB/s</text><text x="20" y="155" fill="#70677e" font-size="13">Current download speed</text><path d="M20 181h28v-8h27v8h24v-18h29v18h24v-10h27v10h26v-22h26v22h21" fill="none" stroke="#4caeaa" stroke-width="3" stroke-linejoin="round"/></g>
+  </g>
+  <rect x="906" y="759" width="316" height="30" rx="15" fill="#ffffffb8" stroke="#fff"/><text x="925" y="779" fill="#736b7d" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12">Illustrative preview · sample metrics</text>
+</svg>

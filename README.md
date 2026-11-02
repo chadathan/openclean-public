@@ -2,6 +2,10 @@
 
 OpenClean is a free macOS utility for understanding system activity and reviewing files that may be safe to remove. File scans and removal decisions stay on your Mac; OpenClean does not delete files automatically.
 
+![OpenClean dashboard preview (illustration with sample metrics)](docs/images/openclean-dashboard-preview.svg)
+
+*Illustrative dashboard preview. Metrics shown are examples, not live data.*
+
 ## Download and install
 
 Requires an Apple silicon Mac.
