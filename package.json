@@ -1,6 +1,6 @@
 {
   "name": "openclean",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "private": true,
   "description": "OpenClean macOS monitor dashboard",
   "main": "dist-electron/main.js",
